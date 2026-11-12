@@ -1,5 +1,5 @@
 // 루틴 체크 오프라인 캐시. 앱을 고치면 VERSION을 올린다.
-const VERSION = 'rc-v1';
+const VERSION = 'rc-v2';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
