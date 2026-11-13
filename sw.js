@@ -1,5 +1,5 @@
 // 루틴 체크 오프라인 캐시. 앱을 고치면 VERSION을 올린다.
-const VERSION = 'rc-v2';
+const VERSION = 'rc-v3';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
@@ -32,7 +32,7 @@ self.addEventListener('fetch', e => {
   }
 
   // 같은 주소의 파일과 글꼴: 저장된 것을 먼저 쓰고 뒤에서 갱신
-  const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
+  const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com' || url.hostname === 'cdn.jsdelivr.net';
   if (url.origin === location.origin || isFont) {
     e.respondWith(
       caches.match(req).then(hit => {
